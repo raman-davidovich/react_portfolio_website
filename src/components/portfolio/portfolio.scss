@@ -1,0 +1,57 @@
+.portfolio {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  &__item {
+    background: var(--color-bg-variant);
+    padding: 1.2rem;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+    transition: var(--transition);
+    grid-column-start: 2; /*Remove this line when be added second project*/
+
+    &:hover {
+      border-color: var(--color-primary-variant);
+      background: transparent;
+    }
+
+    &-image {
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+
+    & h3 {
+      margin: 1.2rem 0 2rem;
+    }
+
+    & p {
+      margin-bottom: 1.2rem;
+      color: var(--color-primary);
+    }
+
+    &-cta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+/* ======================== MEDIA QUERIES (TABLETS) ======================= */
+@media screen and (max-width: 1024px) {
+  .portfolio__container {
+    grid-template-columns: 1fr; /*Add second 1fr when be added second project*/
+    gap: 1.2rem;
+  }
+}
+
+/* ======================== MEDIA QUERIES (PHONES) ======================= */
+@media screen and (max-width: 600px) {
+  .portfolio__container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

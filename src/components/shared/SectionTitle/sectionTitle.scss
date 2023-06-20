@@ -1,0 +1,13 @@
+.sectionTitle {
+  &__title {
+    line-height: 0.55;
+    padding-bottom: 14.442px;
+
+    & span {
+      color: var(--color-light);
+      font-size: 0.83rem;
+      line-height: 1.7;
+      display: block;
+    }
+  }
+}
