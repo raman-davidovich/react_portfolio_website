@@ -2,6 +2,7 @@ import React from "react";
 import headerData from "./ constants";
 import { Tooltip } from "react-tooltip";
 import { Fade } from "react-awesome-reveal";
+import { isDesktop } from "react-device-detect";
 
 const HeaderSocials = () => {
   return (
@@ -20,6 +21,7 @@ const HeaderSocials = () => {
               data-tooltip-delay-show={500}
               data-tooltip-variant="info"
               data-tooltip-place="right"
+              data-tooltip-hidden={!isDesktop}
             >
               {icon}
             </a>

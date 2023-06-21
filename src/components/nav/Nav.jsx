@@ -6,6 +6,7 @@ import { InViewIDContext } from "../../context/InViewIDContext";
 import classNames from "classnames";
 import useDebounce from "@rooks/use-debounce";
 import { Fade } from "react-awesome-reveal";
+import { isDesktop } from "react-device-detect";
 
 const Nav = () => {
   const { inViewSectionID } = useContext(InViewIDContext);
@@ -36,6 +37,7 @@ const Nav = () => {
                 data-tooltip-content={dataTooltipContent}
                 data-tooltip-delay-show={500}
                 data-tooltip-variant="info"
+                data-tooltip-hidden={!isDesktop}
               >
                 {icon}
               </a>

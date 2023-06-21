@@ -4,6 +4,7 @@ import SectionTitle from "../shared/SectionTitle/SectionTitle";
 import portfolioData from "./constants";
 import { Tooltip } from "react-tooltip";
 import { Fade } from "react-awesome-reveal";
+import { isDesktop } from "react-device-detect";
 
 const Portfolio = () => {
   return (
@@ -39,6 +40,7 @@ const Portfolio = () => {
                           data-tooltip-content={dataTooltipContent}
                           data-tooltip-delay-show={2000}
                           data-tooltip-variant="info"
+                          data-tooltip-hidden={!isDesktop}
                         >
                           {content}
                         </a>

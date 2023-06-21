@@ -3,6 +3,7 @@ import "./footer.scss";
 import { Tooltip } from "react-tooltip";
 import footerData from "./constants";
 import { Fade } from "react-awesome-reveal";
+import { isDesktop } from "react-device-detect";
 
 const Footer = () => {
   return (
@@ -43,6 +44,7 @@ const Footer = () => {
                   data-tooltip-content={dataTooltipContent}
                   data-tooltip-delay-show={500}
                   data-tooltip-variant="dark"
+                  data-tooltip-hidden={!isDesktop}
                 >
                   {icon}
                 </a>
