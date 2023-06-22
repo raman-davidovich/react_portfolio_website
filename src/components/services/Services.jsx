@@ -4,7 +4,6 @@ import SectionTitle from "../shared/SectionTitle/SectionTitle";
 import { servicesData } from "./constants";
 import { useInView } from "react-intersection-observer";
 import { InViewIDContext } from "../../context/InViewIDContext";
-import { Fade } from "react-awesome-reveal";
 import List from "../shared/List/List";
 import useWindowSize from "@rooks/use-window-size";
 import { getThreshold } from "../shared/utils";
@@ -26,27 +25,23 @@ const Services = () => {
   return (
     <section id="services" ref={ref}>
       <SectionTitle>
-        <Fade delay={500} direction="down" cascade triggerOnce damping={0.3}>
-          <span>What I Offer</span>
-          <br />
-          <div>Services</div>
-        </Fade>
+        <span>What I Offer</span>
+        <br />
+        <div>Services</div>
       </SectionTitle>
 
       <div className="container services__container">
-        <Fade delay={1500} direction="up" cascade triggerOnce damping={0.3}>
-          {servicesData.map(({ sectionTitle, list }) => {
-            return (
-              <div className="service" key={sectionTitle}>
-                <div className="service__head">
-                  <h3>{sectionTitle}</h3>
-                </div>
-
-                <List list={list}></List>
+        {servicesData.map(({ sectionTitle, list }) => {
+          return (
+            <div className="service" key={sectionTitle}>
+              <div className="service__head">
+                <h3>{sectionTitle}</h3>
               </div>
-            );
-          })}
-        </Fade>
+
+              <List list={list}></List>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

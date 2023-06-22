@@ -5,7 +5,6 @@ import { Tooltip } from "react-tooltip";
 import { InViewIDContext } from "../../context/InViewIDContext";
 import classNames from "classnames";
 import useDebounce from "@rooks/use-debounce";
-import { Fade } from "react-awesome-reveal";
 import { isDesktop } from "react-device-detect";
 
 const Nav = () => {
@@ -21,33 +20,31 @@ const Nav = () => {
   }, [inViewSectionID]);
 
   return (
-    <Fade delay={4000} direction="up" triggerOnce className="navigation">
+    <div className="navigation">
       <nav>
-        <Fade delay={4500} direction="up" triggerOnce cascade damping={0.3}>
-          {navData.map(({ href, className, dataTooltipContent, icon }) => {
-            return (
-              <a
-                key={className}
-                href={href}
-                aria-label={`Go to section ${dataTooltipContent}`}
-                onClick={() => setActiveNav({ className })}
-                className={classNames("tooltip_nav", {
-                  active: activeNav === className,
-                })}
-                data-tooltip-content={dataTooltipContent}
-                data-tooltip-delay-show={500}
-                data-tooltip-variant="info"
-                data-tooltip-hidden={!isDesktop}
-              >
-                {icon}
-              </a>
-            );
-          })}
-        </Fade>
+        {navData.map(({ href, className, dataTooltipContent, icon }) => {
+          return (
+            <a
+              key={className}
+              href={href}
+              aria-label={`Go to section ${dataTooltipContent}`}
+              onClick={() => setActiveNav({ className })}
+              className={classNames("tooltip_nav", {
+                active: activeNav === className,
+              })}
+              data-tooltip-content={dataTooltipContent}
+              data-tooltip-delay-show={500}
+              data-tooltip-variant="info"
+              data-tooltip-hidden={!isDesktop}
+            >
+              {icon}
+            </a>
+          );
+        })}
 
         <Tooltip anchorSelect=".tooltip_nav" />
       </nav>
-    </Fade>
+    </div>
   );
 };
 
