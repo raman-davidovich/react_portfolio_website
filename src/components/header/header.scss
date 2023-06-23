@@ -15,6 +15,18 @@ h2.text-light {
     position: relative;
   }
 
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &__socials {
     display: flex;
     flex-direction: column;
@@ -34,13 +46,6 @@ h2.text-light {
       width: 1px;
       height: 2rem;
       background: var(--color-primary);
-      animation-delay: 5500ms;
-      animation-duration: 1000ms;
-      animation-timing-function: ease;
-      animation-name: animation-1rg2aqu;
-      animation-direction: normal;
-      animation-fill-mode: both;
-      animation-iteration-count: 1;
     }
   }
 }

@@ -5,6 +5,7 @@ import ME from "../../assets/me.webp";
 import HeaderSocials from "./HeaderSocials";
 import { useInView } from "react-intersection-observer";
 import { InViewIDContext } from "../../context/InViewIDContext";
+import Reveal from "../shared/Reveal/Reveal";
 
 const Header = () => {
   const { changeInViewID } = useContext(InViewIDContext);
@@ -23,17 +24,33 @@ const Header = () => {
   return (
     <header ref={ref}>
       <div className="container header__container">
-        <h5>Hello I'm</h5>
-        <h1>Raman Davidovich</h1>
-        <h2 className="text-light">Frontend Developer</h2>
+        <div className="header__title">
+          <Reveal>
+            <h5>Hello I'm</h5>
+          </Reveal>
+          <Reveal>
+            <h1>Raman Davidovich</h1>
+          </Reveal>
+          <Reveal>
+            <h2 className="text-light">Frontend Developer</h2>
+          </Reveal>
+        </div>
+
         <CTA />
         <HeaderSocials />
-        <div className="me">
-          <img src={ME} alt="Smilling Raman" loading="eager" />
+
+        <div className="header__photo">
+          <Reveal>
+            <div className="me">
+              <img src={ME} alt="Smilling Raman" loading="eager" />
+            </div>
+          </Reveal>
         </div>
 
         <div className="scroll__down">
-          <a href="#contacts">Scroll Down</a>
+          <Reveal>
+            <a href="#contacts">Scroll Down</a>
+          </Reveal>
         </div>
       </div>
     </header>
