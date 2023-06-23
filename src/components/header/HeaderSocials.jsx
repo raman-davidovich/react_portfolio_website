@@ -9,9 +9,8 @@ const HeaderSocials = () => {
     <div className="header__socials">
       {headerData.map(({ href, dataTooltipContent, icon }) => {
         return (
-          <Reveal>
+          <Reveal key={dataTooltipContent}>
             <a
-              key={dataTooltipContent}
               href={href}
               aria-label={`Visit Raman's ${dataTooltipContent} account.`}
               target="_blank"
