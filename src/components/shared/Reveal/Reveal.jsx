@@ -13,7 +13,7 @@ const Reveal = ({ children, width = "fit-content" }) => {
       mainControls.start("visible");
       slideControls.start("visible");
     }
-  }, [isInView]);
+  }, [isInView, mainControls, slideControls]);
 
   return (
     <div
