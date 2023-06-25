@@ -6,6 +6,7 @@ import { InViewIDContext } from "../../context/InViewIDContext";
 import classNames from "classnames";
 import useDebounce from "@rooks/use-debounce";
 import { isDesktop } from "react-device-detect";
+import RevealWithDelay from "../shared/RevealWithDelay/RevealWithDelay";
 
 const Nav = () => {
   const { inViewSectionID } = useContext(InViewIDContext);
@@ -21,29 +22,31 @@ const Nav = () => {
 
   return (
     <div className="navigation">
-      <nav>
-        {navData.map(({ href, className, dataTooltipContent, icon }) => {
-          return (
-            <a
-              key={className}
-              href={href}
-              aria-label={`Go to section ${dataTooltipContent}`}
-              onClick={() => setActiveNav({ className })}
-              className={classNames("tooltip_nav", {
-                active: activeNav === className,
-              })}
-              data-tooltip-content={dataTooltipContent}
-              data-tooltip-delay-show={500}
-              data-tooltip-variant="info"
-              data-tooltip-hidden={!isDesktop}
-            >
-              {icon}
-            </a>
-          );
-        })}
+      <RevealWithDelay>
+        <nav>
+          {navData.map(({ href, className, dataTooltipContent, icon }) => {
+            return (
+              <a
+                key={className}
+                href={href}
+                aria-label={`Go to section ${dataTooltipContent}`}
+                onClick={() => setActiveNav({ className })}
+                className={classNames("tooltip_nav", {
+                  active: activeNav === className,
+                })}
+                data-tooltip-content={dataTooltipContent}
+                data-tooltip-delay-show={500}
+                data-tooltip-variant="info"
+                data-tooltip-hidden={!isDesktop}
+              >
+                {icon}
+              </a>
+            );
+          })}
 
-        <Tooltip anchorSelect=".tooltip_nav" />
-      </nav>
+          <Tooltip anchorSelect=".tooltip_nav" />
+        </nav>
+      </RevealWithDelay>
     </div>
   );
 };
