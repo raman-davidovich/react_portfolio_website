@@ -8,6 +8,7 @@ import { InViewIDContext } from "../../context/InViewIDContext";
 import Button from "../shared/Button/Button";
 import useWindowSize from "@rooks/use-window-size";
 import { getThreshold } from "../shared/utils";
+import Reveal from "../shared/Reveal/Reveal";
 
 const About = () => {
   const { innerHeight, innerWidth } = useWindowSize();
@@ -26,41 +27,53 @@ const About = () => {
   return (
     <section id="about" ref={ref}>
       <SectionTitle>
-        <span>Get To Know</span>
+        <Reveal>
+          <span>Get To Know</span>
+        </Reveal>
         <br />
-        <div>About Me</div>
+        <Reveal>
+          <div>About Me</div>
+        </Reveal>
       </SectionTitle>
 
       <div className="container about__container">
-        <div className="about__me">
-          <div className="about__me-image">
-            <img src={ME} alt="Serious Raman" loading="lazy" />
+        <Reveal overflow="visible">
+          <div className="about__me">
+            <div className="about__me-image">
+              <img src={ME} alt="Serious Raman" loading="lazy" />
+            </div>
           </div>
-        </div>
+        </Reveal>
         <div className="about__content">
           <ul className="about__cards">
             {cardsInfo.map(({ icon, title, information }) => {
               return (
-                <li key={title} className="about__card">
-                  {icon}
-                  <h3>{title}</h3>
-                  <small>{information}</small>
-                </li>
+                <Reveal key={title} width="100%">
+                  <li className="about__card">
+                    {icon}
+                    <h3>{title}</h3>
+                    <small>{information}</small>
+                  </li>
+                </Reveal>
               );
             })}
           </ul>
 
-          <p>
-            I'm an enthusiastic and detail-oriented Frontend Software Engineer
-            seeking an entry-level position to use my skills in coding and
-            troubleshooting complex problems. Currently located in Belarus.
-            Ready to relocate. I am looking for any type of employment:
-            full-time, partial, remote, internship.
-          </p>
+          <Reveal>
+            <p>
+              I'm an enthusiastic and detail-oriented Frontend Software Engineer
+              seeking an entry-level position to use my skills in coding and
+              troubleshooting complex problems. Currently located in Belarus.
+              Ready to relocate. I am looking for any type of employment:
+              full-time, partial, remote, internship.
+            </p>
+          </Reveal>
 
-          <Button tag="a" href="#contacts" primary>
-            Let's Talk
-          </Button>
+          <Reveal>
+            <Button tag="a" href="#contacts" primary>
+              Let's Talk
+            </Button>
+          </Reveal>
         </div>
       </div>
     </section>
