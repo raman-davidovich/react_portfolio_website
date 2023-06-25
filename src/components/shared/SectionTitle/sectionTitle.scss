@@ -1,5 +1,8 @@
 .sectionTitle {
   &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     line-height: 0.55;
     padding-bottom: 14.442px;
 
@@ -8,6 +11,11 @@
       font-size: 0.83rem;
       line-height: 1.7;
       display: block;
+    }
+
+    & div {
+      overflow: visible !important;
+      line-height: 1;
     }
   }
 }
