@@ -3,6 +3,7 @@ import "./certifications.scss";
 import SectionTitle from "../shared/SectionTitle/SectionTitle";
 import certificatsInfo from "./constants";
 import { getSlidesPerView, getModules, getSpaceBetween } from "./utils";
+import Reveal from "../shared/Reveal/Reveal";
 
 // import Swiper core and required modules
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -23,9 +24,13 @@ const Certifications = () => {
   return (
     <section id="certifications">
       <SectionTitle>
-        <span>Knowledge confirmation</span>
+        <Reveal>
+          <span>Knowledge confirmation</span>
+        </Reveal>
         <br />
-        <div>Licences & certifications</div>
+        <Reveal>
+          <div>Licences & certifications</div>
+        </Reveal>
       </SectionTitle>
 
       <Swiper
@@ -54,14 +59,20 @@ const Certifications = () => {
           return (
             <SwiperSlide key={picture} className="certificat">
               <div className="certificat__picture">
-                <img
-                  src={picture}
-                  alt={`${title} certificate`}
-                  loading="lazy"
-                />
+                <Reveal>
+                  <img
+                    src={picture}
+                    alt={`${title} certificate`}
+                    loading="lazy"
+                  />
+                </Reveal>
               </div>
-              <h3 className="certificat__title">{title}</h3>
-              <small className="certificat__skills">Skills: {skills}</small>
+              <Reveal>
+                <h3 className="certificat__title">{title}</h3>
+              </Reveal>
+              <Reveal>
+                <small className="certificat__skills">Skills: {skills}</small>
+              </Reveal>
             </SwiperSlide>
           );
         })}
