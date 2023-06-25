@@ -15,6 +15,7 @@ import Typography from "@mui/material/Typography";
 import { isReadyToSubmit } from "./utils";
 import useWindowSize from "@rooks/use-window-size";
 import { getThreshold } from "../shared/utils";
+import Reveal from "../shared/Reveal/Reveal";
 
 const validationSchema = yup.object().shape({
   name: yup.string().required("Required"),
@@ -55,9 +56,13 @@ const Contacts = () => {
   return (
     <section id="contacts" ref={ref}>
       <SectionTitle>
-        <span>Get In Touch</span>
+        <Reveal>
+          <span>Get In Touch</span>
+        </Reveal>
         <br />
-        <div>Contact Me</div>
+        <Reveal>
+          <div>Contact Me</div>
+        </Reveal>
       </SectionTitle>
 
       <div className="container contacts__container">
@@ -65,14 +70,16 @@ const Contacts = () => {
           {contactsInfo.contacts.map(
             ({ icon, title, content, href, action }) => {
               return (
-                <li key={title} className="contacts__option">
-                  {icon}
-                  <h3>{title}</h3>
-                  <p className="contacts__option__content">{content}</p>
-                  <a href={href} target="_blank" rel="noreferrer">
-                    {action}
-                  </a>
-                </li>
+                <Reveal width="100%">
+                  <li key={title} className="contacts__option">
+                    {icon}
+                    <h3>{title}</h3>
+                    <p className="contacts__option__content">{content}</p>
+                    <a href={href} target="_blank" rel="noreferrer">
+                      {action}
+                    </a>
+                  </li>
+                </Reveal>
               );
             }
           )}
@@ -100,38 +107,44 @@ const Contacts = () => {
               {contactsInfo.form.map(
                 ({ id, placeholder, type, component, rows }, index) => {
                   return (
-                    <div key={id}>
-                      <Field
-                        id={id}
-                        name={id}
-                        placeholder={placeholder}
-                        type={type}
-                        className={classNames({
-                          error__border: errors[`${id}`] && touched[`${id}`],
-                        })}
-                        component={component}
-                        rows={rows}
-                      />
+                    <Reveal width="100%" key={id}>
+                      <div>
+                        <Field
+                          id={id}
+                          name={id}
+                          placeholder={placeholder}
+                          type={type}
+                          className={classNames({
+                            error__border: errors[`${id}`] && touched[`${id}`],
+                          })}
+                          component={component}
+                          rows={rows}
+                        />
 
-                      <FormError>
-                        {errors[`${id}`] && touched[`${id}`] ? (
-                          errors[`${id}`]
-                        ) : (
-                          <br />
-                        )}
-                      </FormError>
-                    </div>
+                        <FormError>
+                          {errors[`${id}`] && touched[`${id}`] ? (
+                            errors[`${id}`]
+                          ) : (
+                            <br />
+                          )}
+                        </FormError>
+                      </div>
+                    </Reveal>
                   );
                 }
               )}
 
-              <Button
-                primary
-                type="submit"
-                onClick={isReadyToSubmit(errors, touched) ? handleClick : null}
-              >
-                Send Message
-              </Button>
+              <Reveal>
+                <Button
+                  primary
+                  type="submit"
+                  onClick={
+                    isReadyToSubmit(errors, touched) ? handleClick : null
+                  }
+                >
+                  Send Message
+                </Button>
+              </Reveal>
               <Popover
                 id={id}
                 open={open}
