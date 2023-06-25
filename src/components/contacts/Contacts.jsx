@@ -70,8 +70,8 @@ const Contacts = () => {
           {contactsInfo.contacts.map(
             ({ icon, title, content, href, action }) => {
               return (
-                <Reveal width="100%">
-                  <li key={title} className="contacts__option">
+                <Reveal width="100%" key={title}>
+                  <li className="contacts__option">
                     {icon}
                     <h3>{title}</h3>
                     <p className="contacts__option__content">{content}</p>
