@@ -4,14 +4,19 @@ import SectionTitle from "../shared/SectionTitle/SectionTitle";
 import portfolioData from "./constants";
 import { Tooltip } from "react-tooltip";
 import { isDesktop } from "react-device-detect";
+import Reveal from "../shared/Reveal/Reveal";
 
 const Portfolio = () => {
   return (
     <section id="portfolio">
       <SectionTitle>
-        <span>My Recent Work</span>
+        <Reveal>
+          <span>My Recent Work</span>
+        </Reveal>
         <br />
-        <div>Portfolio</div>
+        <Reveal>
+          <div>Portfolio</div>
+        </Reveal>
       </SectionTitle>
 
       <ul className="container portfolio__container">
@@ -19,27 +24,34 @@ const Portfolio = () => {
           return (
             <li key={id} className="portfolio__item">
               <div className="portfolio__item-image">
-                <img src={image} alt={`${title} screenshot`} loading="lazy" />
+                <Reveal>
+                  <img src={image} alt={`${title} screenshot`} loading="lazy" />
+                </Reveal>
               </div>
-              <h3>{title}</h3>
-              <p>{technologies}</p>
+              <Reveal>
+                <h3>{title}</h3>
+              </Reveal>
+              <Reveal>
+                <p>{technologies}</p>
+              </Reveal>
               <div className="portfolio__item-cta">
                 {links.map(
                   ({ href, className, dataTooltipContent, content }) => {
                     return (
-                      <a
-                        key={content}
-                        href={href}
-                        className={className}
-                        target="_blank"
-                        rel="noreferrer"
-                        data-tooltip-content={dataTooltipContent}
-                        data-tooltip-delay-show={2000}
-                        data-tooltip-variant="info"
-                        data-tooltip-hidden={!isDesktop}
-                      >
-                        {content}
-                      </a>
+                      <Reveal key={content}>
+                        <a
+                          href={href}
+                          className={className}
+                          target="_blank"
+                          rel="noreferrer"
+                          data-tooltip-content={dataTooltipContent}
+                          data-tooltip-delay-show={2000}
+                          data-tooltip-variant="info"
+                          data-tooltip-hidden={!isDesktop}
+                        >
+                          {content}
+                        </a>
+                      </Reveal>
                     );
                   }
                 )}
