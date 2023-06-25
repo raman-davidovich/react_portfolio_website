@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import { InViewIDContext } from "../../context/InViewIDContext";
 import useWindowSize from "@rooks/use-window-size";
 import { getThreshold } from "../shared/utils";
+import Reveal from "../shared/Reveal/Reveal";
 
 const Experience = () => {
   const { innerHeight, innerWidth } = useWindowSize();
@@ -25,30 +26,38 @@ const Experience = () => {
   return (
     <section id="experience" ref={ref}>
       <SectionTitle>
-        <span>The Skills I Have</span>
+        <Reveal>
+          <span>The Skills I Have</span>
+        </Reveal>
         <br />
-        <div>My Experience</div>
+        <Reveal>
+          <div>My Experience</div>
+        </Reveal>
       </SectionTitle>
 
       <div className="container experience__container">
         {experienceData.map(({ title, list }) => {
           return (
             <div key={title}>
-              <h3>{title}</h3>
+              <Reveal width="100%">
+                <h3>{title}</h3>
+              </Reveal>
 
               <ul className="experience__content">
                 {list.map(({ technology, level }) => {
                   return (
-                    <li key={technology} className="experience__details">
-                      <BsPatchCheckFill
-                        className="experience__details-icon"
-                        alt="Styled list item marker"
-                      />
-                      <div>
-                        <h4>{technology}</h4>
-                        <small className="text-light">{level}</small>
-                      </div>
-                    </li>
+                    <Reveal key={technology}>
+                      <li className="experience__details">
+                        <BsPatchCheckFill
+                          className="experience__details-icon"
+                          alt="Styled list item marker"
+                        />
+                        <div>
+                          <h4>{technology}</h4>
+                          <small className="text-light">{level}</small>
+                        </div>
+                      </li>
+                    </Reveal>
                   );
                 })}
               </ul>
