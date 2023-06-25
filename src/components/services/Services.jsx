@@ -7,6 +7,7 @@ import { InViewIDContext } from "../../context/InViewIDContext";
 import List from "../shared/List/List";
 import useWindowSize from "@rooks/use-window-size";
 import { getThreshold } from "../shared/utils";
+import Reveal from "../shared/Reveal/Reveal";
 
 const Services = () => {
   const { innerHeight, innerWidth } = useWindowSize();
@@ -25,9 +26,13 @@ const Services = () => {
   return (
     <section id="services" ref={ref}>
       <SectionTitle>
-        <span>What I Offer</span>
+        <Reveal>
+          <span>What I Offer</span>
+        </Reveal>
         <br />
-        <div>Services</div>
+        <Reveal>
+          <div>Services</div>
+        </Reveal>
       </SectionTitle>
 
       <div className="container services__container">
@@ -35,7 +40,9 @@ const Services = () => {
           return (
             <div className="service" key={sectionTitle}>
               <div className="service__head">
-                <h3>{sectionTitle}</h3>
+                <Reveal width="100%">
+                  <h3>{sectionTitle}</h3>
+                </Reveal>
               </div>
 
               <List list={list}></List>
