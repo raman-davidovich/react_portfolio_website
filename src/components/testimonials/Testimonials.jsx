@@ -3,6 +3,7 @@ import "./testimonials.scss";
 import SectionTitle from "../shared/SectionTitle/SectionTitle";
 import testimonialsData from "./constants";
 import Reveal from "../shared/Reveal/Reveal";
+import RevealWithDelay from "../shared/RevealWithDelay/RevealWithDelay";
 
 // import Swiper core and required modules
 import { Autoplay, Pagination } from "swiper";
@@ -44,12 +45,12 @@ const Testimonials = () => {
               <div className="client__avatar">
                 <img src={avatar} alt={`${name} avatar`} loading="lazy" />
               </div>
-              <Reveal width="100%">
+              <RevealWithDelay width="100%">
                 <h3 className="client__name">{name}</h3>
-              </Reveal>
-              <Reveal>
+              </RevealWithDelay>
+              <RevealWithDelay>
                 <small className="client__review">{review}</small>
-              </Reveal>
+              </RevealWithDelay>
             </SwiperSlide>
           );
         })}
