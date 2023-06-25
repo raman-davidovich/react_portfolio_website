@@ -3,28 +3,28 @@ import "./footer.scss";
 import { Tooltip } from "react-tooltip";
 import footerData from "./constants";
 import { isDesktop } from "react-device-detect";
-import Reveal from "../shared/Reveal/Reveal";
+import RevealWithDelay from "../shared/RevealWithDelay/RevealWithDelay";
 
 const Footer = () => {
   return (
     <footer>
-      <Reveal width="100%">
+      <RevealWithDelay width="100%">
         <a href="/#" className="footer__logo">
           Raman Davidovich
         </a>
-      </Reveal>
+      </RevealWithDelay>
 
       <nav>
         <ul className="permalinks">
           {footerData.info.map(({ href, content }) => {
             return (
-              <Reveal key={content}>
+              <RevealWithDelay key={content} width="100%">
                 <li>
                   <a href={href} aria-label={`Go to ${content} section.`}>
                     {content}
                   </a>
                 </li>
-              </Reveal>
+              </RevealWithDelay>
             );
           })}
         </ul>
@@ -33,7 +33,7 @@ const Footer = () => {
       <ul className="footer__socials">
         {footerData.socials.map(({ href, dataTooltipContent, icon }) => {
           return (
-            <Reveal key={dataTooltipContent}>
+            <RevealWithDelay key={dataTooltipContent}>
               <li>
                 <a
                   href={href}
@@ -49,16 +49,16 @@ const Footer = () => {
                   {icon}
                 </a>
               </li>
-            </Reveal>
+            </RevealWithDelay>
           );
         })}
       </ul>
       <Tooltip anchorSelect=".tooltip_footer" />
 
       <div className="footer__copyright">
-        <Reveal width="100%">
+        <RevealWithDelay width="100%">
           <small>{new Date().getFullYear()} &copy; All rights reserved.</small>
-        </Reveal>
+        </RevealWithDelay>
       </div>
     </footer>
   );
