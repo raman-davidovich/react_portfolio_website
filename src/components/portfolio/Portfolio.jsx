@@ -25,7 +25,7 @@ const Portfolio = () => {
             <li key={id} className="portfolio__item">
               <div className="portfolio__item-image">
                 <Reveal>
-                  <img src={image} alt={`${title} screenshot`} loading="lazy" />
+                  <img src={image} alt={`${title} screenshot`} />
                 </Reveal>
               </div>
               <Reveal>
