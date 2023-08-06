@@ -24,7 +24,7 @@
     color: var(--color-light);
     font-weight: 300;
     display: block;
-    width: 80%;
+    // width: 80%;
     margin: 0.8rem auto 0;
   }
 }
@@ -71,10 +71,6 @@
 /* ======================== MEDIA QUERIES (PHONES) ======================= */
 @media screen and (max-width: 600px) {
   .container.certifications__container {
-    width: var(--container-width-sm);
-  }
-
-  .certificat__skills {
     width: var(--container-width-sm);
   }
 }
