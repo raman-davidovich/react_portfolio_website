@@ -18,7 +18,7 @@ const cardsInfo = [
       <VscFolderLibrary className="about__icon" alt="Folder library icon" />
     ),
     title: "Projects",
-    information: "2 Completed",
+    information: "3 Completed",
   },
 ];
 
